@@ -1,0 +1,24 @@
+1. 找到native-lib
+     主要在源码的libcore 下
+     loader.findLibrary()//BaseDexClassLoader  找到全路径
+     Runtime.loadlibrary0();
+       System.mapLibraryNam(); 找到lib名字(判断系统架构  x86 x64arm)
+
+       系统的lib地址：  System library path->/system/lib64:/system/vendor/lib64
+       nativeLibraryDirectories=
+       [/data/app/com.example.westd.ndkapplication-qFc2OLUuugDSInjnqpxHKw==/lib/arm64,
+        /data/app/com.example.westd.ndkapplication-qFc2OLUuugDSInjnqpxHKw==/base.apk!/lib/arm64-v8a,
+        /system/lib64, /system/vendor/lib64]
+
+2.如何加载so库
+    Runtime.java.nativeLoad();
+
+    OS 4.4.4
+    dalvik/vm/Runtime.c
+    OS 7.0
+    art/runtime/Runtime.cc
+
+    ->art/runtime/openJdkJvm.cc & JVM_NativeLoad(env,javafilename);
+
+
+       javaVMExt vm ->loadNativeLibrary();
