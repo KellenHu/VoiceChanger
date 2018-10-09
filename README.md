@@ -8,3 +8,4 @@ demo中包含了，萝莉，大叔，惊悚，搞怪几种音效
 demo仅供讨论学习
 商用前请告知(free)
 ## How to Use
+> exclude
