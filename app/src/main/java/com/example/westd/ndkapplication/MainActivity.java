@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 //    System.loadLibrary("native-lib");
   }
 
-  private static String TAG = "MainActivity";
+  private static String TAG = "MainActivity111";
 
   private static String SD_CARD_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
 
