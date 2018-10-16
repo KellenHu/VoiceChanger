@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   public void diff(){
-    Log.d(TAG,"diff begin java- das--ad-----------");
+    Log.d(TAG,"diff begin java- das--ad-----dasd------");
 
     String path = SD_CARD_PATH + File.separator + "video.mp4";
     String pattern_path = SD_CARD_PATH + File.separator + "video_%d.mp4";
