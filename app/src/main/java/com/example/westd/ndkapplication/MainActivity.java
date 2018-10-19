@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   public void patch(){
-    Log.d(TAG,"merge begin java-------java patch-------");
+    Log.d(TAG,"merge begin java-----大神--java patch-------");
 
     String path = SD_CARD_PATH + File.separator + "video_merge.mp4";
     String pattern_path = SD_CARD_PATH + File.separator + "video_%d.mp4";
