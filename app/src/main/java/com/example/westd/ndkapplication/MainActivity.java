@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.westd.ndkapplication.anfixdemo.AndfixMainActivity;
 import com.example.westd.ndkapplication.changeVoice.ChangeVoiceActivity;
 
 import java.io.File;
@@ -41,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
     });
 
     btChangeVoice.setOnClickListener(v->{
-      startActivity(new Intent(MainActivity.this,ChangeVoiceActivity.class));
+//      startActivity(new Intent(MainActivity.this,ChangeVoiceActivity.class));
+      Intent intent = new Intent(MainActivity.this,AndfixMainActivity.class);
+      intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      getApplicationContext().startActivity(intent);
     });
 
 
@@ -66,5 +71,11 @@ public class MainActivity extends AppCompatActivity {
     String pattern_path = SD_CARD_PATH + File.separator + "video_%d.mp4";
 
     FileUtils.patch(path,pattern_path,4);
+  }
+
+  @Override
+  protected void onDestroy() {
+    Toast.makeText(getApplicationContext(),"MainActivity Ondesdroy",Toast.LENGTH_SHORT).show();
+    super.onDestroy();
   }
 }
