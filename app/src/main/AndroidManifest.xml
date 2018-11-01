@@ -15,9 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="HardcodedDebugMode">
-        <activity android:name=".MainActivity"
-            android:launchMode="singleTask"
-            >
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,9 +28,10 @@
         <activity android:name=".TestFlowLayoutActivity" />
         <activity android:name=".changeVoice.ChangeVoiceActivity" />
         <activity android:name=".changeVoice.MainActivity" />
-        <activity android:name=".anfixdemo.AndfixMainActivity"
-            android:launchMode="singleTask"
-            ></activity>
+        <activity
+            android:name=".anfixdemo.AndfixMainActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".myview.MyViewMainActivity"></activity>
     </application>
 
 </manifest>

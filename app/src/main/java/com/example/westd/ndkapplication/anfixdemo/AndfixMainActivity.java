@@ -21,9 +21,11 @@ public class AndfixMainActivity extends AppCompatActivity {
 //      Toast.makeText(getApplicationContext(),"启动自己成功",Toast.LENGTH_SHORT).show();
     });
     findViewById(R.id.start_mainactivity).setOnClickListener(v->{
-      startActivity(new Intent(AndfixMainActivity.this,MainActivity.class));
+//      startActivity(new Intent(AndfixMainActivity.this,MainActivity.class));
+      new Caculator().caculator();
 //      Toast.makeText(getApplicationContext(),"启动Main成功",Toast.LENGTH_SHORT).show();
     });
+
   }
 
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".myview.MyViewMainActivity">
+
+    <com.example.westd.ndkapplication.myview.HorizontalScrollViewEx
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/container"
+        >
+
+
+    </com.example.westd.ndkapplication.myview.HorizontalScrollViewEx>
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+</LinearLayout>

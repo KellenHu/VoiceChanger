@@ -1,16 +1,20 @@
 package com.example.westd.ndkapplication;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Environment;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.westd.ndkapplication.anfixdemo.AndfixMainActivity;
 import com.example.westd.ndkapplication.changeVoice.ChangeVoiceActivity;
+import com.example.westd.ndkapplication.myview.MyViewMainActivity;
 
 import java.io.File;
 
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
   private static String SD_CARD_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
 
+  @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -33,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
     // Example of a call to a native method
     TextView tv = (TextView) findViewById(R.id.sample_text);
     TextView btChangeVoice = (TextView) findViewById(R.id.text_change_voice);
+    TextView textAndfix = (TextView) findViewById(R.id.text_andfix);
+    TextView text_my_view = (TextView) findViewById(R.id.text_my_view);
 
+
+    int touchSlop =  ViewConfiguration.get(this).getScaledTouchSlop();//获取设备能识别的最小滑动距离
 
     tv.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -43,12 +52,21 @@ public class MainActivity extends AppCompatActivity {
     });
 
     btChangeVoice.setOnClickListener(v->{
-//      startActivity(new Intent(MainActivity.this,ChangeVoiceActivity.class));
+      startActivity(new Intent(MainActivity.this,ChangeVoiceActivity.class));
+//      Intent intent = new Intent(MainActivity.this,AndfixMainActivity.class);
+//      intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//      getApplicationContext().startActivity(intent);
+    });
+
+    textAndfix.setOnClickListener(v->{
       Intent intent = new Intent(MainActivity.this,AndfixMainActivity.class);
       intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       getApplicationContext().startActivity(intent);
     });
 
+    text_my_view.setOnClickListener(v->{
+      startActivity(new Intent(MainActivity.this, MyViewMainActivity.class));
+    });
 
 //    patch();
     Log.e(TAG,"ClassLoder->"+this.getClassLoader().toString());

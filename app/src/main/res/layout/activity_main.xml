@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.westd.ndkapplication.MainActivity">
+    tools:context="com.example.westd.ndkapplication.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/text_my_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:padding="30dp"
+        android:text="MyView!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_change_voice" />
 
     <TextView
         android:id="@+id/sample_text"
@@ -13,22 +26,33 @@
         android:layout_marginTop="8dp"
         android:padding="30dp"
         android:text="Hello World!"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_change_voice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
         android:layout_marginTop="8dp"
         android:padding="30dp"
         android:text="Change Voice!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_my_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sample_text"
-        app:layout_constraintVertical_bias="0.743" />
+        app:layout_constraintTop_toBottomOf="@+id/text_andfix" />
+
+    <TextView
+        android:id="@+id/text_andfix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="56dp"
+        android:padding="30dp"
+        android:text="AndFix"
+        app:layout_constraintStart_toStartOf="@+id/sample_text"
+        app:layout_constraintTop_toBottomOf="@+id/sample_text" />
 
 </android.support.constraint.ConstraintLayout>
