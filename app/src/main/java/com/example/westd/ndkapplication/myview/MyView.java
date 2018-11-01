@@ -133,7 +133,7 @@ public class MyView extends ViewGroup implements GestureDetector.OnGestureListen
 
 //        ViewHelper.setTranslationX(this,translationX);
 //        ViewHelper.setTranslationY(this,translationY);
-      }break;
+      } break;
 
     }
 

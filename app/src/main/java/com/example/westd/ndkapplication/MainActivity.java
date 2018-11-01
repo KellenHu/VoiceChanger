@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
   private static String TAG = "MainActivity111";
 
   private static String SD_CARD_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
+  private Class clazz;
 
   @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
   @Override
@@ -65,12 +66,25 @@ public class MainActivity extends AppCompatActivity {
     });
 
     text_my_view.setOnClickListener(v->{
-      startActivity(new Intent(MainActivity.this, MyViewMainActivity.class));
+      Intent intent  =new Intent(MainActivity.this, MyViewMainActivity.class);
+      intent.putExtra("ClassLoaded",clazz);
+      startActivity(intent);
     });
 
 //    patch();
     Log.e(TAG,"ClassLoder->"+this.getClassLoader().toString());
     Log.e(TAG,"System library path->"+System.getProperty("java.library.path"));
+    Log.e(TAG,"------------start -----加载class MyView");
+
+    try {
+      clazz = this.getClassLoader().loadClass("com.example.westd.ndkapplication.myview.MyView");
+      Log.d(TAG, "onCreate: MyView" + clazz.toString());
+
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+
+
   }
 
   public void diff(){

@@ -1,5 +1,6 @@
 package com.example.westd.ndkapplication.myview;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,6 +25,9 @@ import com.example.westd.ndkapplication.R;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
+import dalvik.system.BaseDexClassLoader;
+import dalvik.system.DexClassLoader;
+
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class MyViewMainActivity extends AppCompatActivity {
@@ -43,15 +47,14 @@ public class MyViewMainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_my_view_main);
 
     o = new FileUtils();
-    Log.e("MyView","初始化出来的对象-->" + o.toString());
-
+//    Log.e("MyView","初始化出来的对象-->" + o.toString());
     o1 = new FileUtils();
     WeakReference<Object> weakReference = new WeakReference<Object>(o1);
-    Log.e("MyView","初始化出来的O1 对象-->" + weakReference.get().toString());
+//    Log.e("MyView","初始化出来的O1 对象-->" + weakReference.get().toString());
     text_view = findViewById(R.id.text_view);
     o2 = new FileUtils();
     weakReference2 = new WeakReference<Object>(o2);
-    Log.e("MyView","初始化出来的O2 对象-->" + weakReference2.get().toString());
+//    Log.e("MyView","初始化出来的O2 对象-->" + weakReference2.get().toString());
     o2 = null;
     /**
      * Pre: 匿名创建 和 主动将对象强引用==null 效果一致
@@ -89,7 +92,7 @@ public class MyViewMainActivity extends AppCompatActivity {
     mRootView.addView(myView);
 //    myView.setOnClickListener();
     initView();
-    Log.e("外边->","thread -> " + Thread.currentThread().getName() + "\n Looper -> " + getMainLooper().toString());
+//    Log.e("外边->","thread -> " + Thread.currentThread().getName() + "\n Looper -> " + getMainLooper().toString());
 
     new Thread(new Runnable() {
       @Override
@@ -103,10 +106,10 @@ public class MyViewMainActivity extends AppCompatActivity {
 //           return false;
 //         }
 //       });
-        Log.e("xian->","thread -> " + Thread.currentThread().getName());
+//        Log.e("xian->","thread -> " + Thread.currentThread().getName());
          try {
            Thread.sleep(1000);
-           Log.e("当前线程-->","thread -> " + Thread.currentThread().getName());
+//           Log.e("当前线程-->","thread -> " + Thread.currentThread().getName());
 //           mhander.sendEmptyMessage(1);
          } catch (InterruptedException e){
            e.printStackTrace();
@@ -120,13 +123,27 @@ public class MyViewMainActivity extends AppCompatActivity {
       @Override
       public void run(){
 //        Looper.prepare();
-        Log.e("xian222->","thread -> " + Thread.currentThread().getName()+"\n Looper -> " + getMainLooper().toString());
+//        Log.e("xian222->","thread -> " + Thread.currentThread().getName()+"\n Looper -> " + getMainLooper().toString());
         text_view.setText("故事的小黄花2332");
         text_view.invalidate();
         super.run();
 //        Looper.loop();
       }
     }.start();
+
+
+    Intent intent = getIntent();
+    Class clazz = (Class) intent.getSerializableExtra("ClassLoaded");
+    Log.d(TAG, "onCreate: 接受道的class" + clazz.toString());
+    Log.d(TAG, "onCreate: 本地的ClassLoader - 》" + ((BaseDexClassLoader)this.getClassLoader()).toString());
+    try {
+      Class clazz1 = new DexClassLoader(null,null,null,null).loadClass("com.example.westd.ndkapplication.myview.MyView");
+      Log.d(TAG, "onCreate: 本地的加载出来的class - >" + clazz1.toString() + "是否eqaul :" + clazz.equals(clazz1));
+    } catch (ClassNotFoundException e){
+      e.printStackTrace();
+    }
+
+
   }
 
   private void initView() {
