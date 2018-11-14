@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     try {
       clazz = this.getClassLoader().loadClass("com.example.westd.ndkapplication.myview.MyView");
-      Log.d(TAG, "onCreate: MyView2" + clazz.toString());
+      Log.d(TAG, "onCreate: MyView123" + clazz.toString());
 
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
