@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 //    patch();
     Log.e(TAG,"ClassLoder->"+this.getClassLoader().toString());
-    Log.e(TAG,"System library path->"+System.getProperty("java.library.path"));
+    Log.e(TAG,"System library path 1->"+System.getProperty("java.library.path"));
     Log.e(TAG,"------------start -----加载class MyView");
 
     try {
