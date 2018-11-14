@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     text_my_view.setOnClickListener(v->{
       Intent intent  =new Intent(MainActivity.this, MyViewMainActivity.class);
-      intent.putExtra("ClassLoaded",clazz);
+      intent.putExtra("ClassLoade",clazz);
       startActivity(intent);
     });
 
